@@ -2,28 +2,29 @@
 let dodger=document.getElementById("dodger");
 dodger.style.backgroundColor="#FF69B4";
 
+function parse_int(position){
+    let numbers=position.replace("px", "");
+    let pxNum= parseInt(numbers, 10);
+    return pxNum; 
+}
 function moveDodgerLeft(){
-    let leftNumbers=dodger.style.left.replace("px", "");
-    let left= parseInt(leftNumbers, 10);
-    
+    const left=parse_int(dodger.style.left);
     if (left>0){
         dodger.style.left=`${left-5}px`;
     }
 }
 
 function moveDodgerRight(){
-    let leftNumbers=dodger.style.left.replace("px", "");
-    let left=parseInt(leftNumbers, 10);
-
+    const left=parse_int(dodger.style.left);
     if (left<360){
         dodger.style.left=`${left+5}px`;
     }
 }
 
 function moveDodgerUp(){
-    let upNumbers=dodger.style.bottom.replace("px", "");
-    let up=parseInt(upNumbers, 10);
-
+    // let upNumbers=dodger.style.bottom.replace("px", "");
+    // let up=parseInt(upNumbers, 10);
+    const up=parse_int(dodger.style.bottom);
     if (up<379){
         dodger.style.bottom=`${up+5}px`;
     }
@@ -31,9 +32,9 @@ function moveDodgerUp(){
 
 
 function moveDodgerDown(){
-    let upNumbers=dodger.style.bottom.replace("px", "");
-    let up=parseInt(upNumbers, 10);
-
+    // let upNumbers=dodger.style.bottom.replace("px", "");
+    // let up=parseInt(upNumbers, 10);
+    const up=parse_int(dodger.style.bottom);
     if (up>0){
         dodger.style.bottom=`${up-5}px`;
     }
